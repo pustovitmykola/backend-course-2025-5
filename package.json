@@ -1,0 +1,13 @@
+{
+  "name": "backend-course-2025-5",
+  "version": "1.0.0",
+  "description": "Caching proxy server for http.cat",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js",
+    "dev": "nodemon main.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
