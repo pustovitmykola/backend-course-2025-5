@@ -1,0 +1,28 @@
+# Запуск сервера
+node main.js -h localhost -p 3000 -c cache
+
+# Тест 1: GET запит (отримати картинку для коду 200)
+curl http://localhost:3000/200 -o test_200.jpg
+
+# Тест 2: GET запит (отримати картинку для коду 404)
+curl http://localhost:3000/404 -o test_404.jpg
+
+# Тест 3: DELETE запит (видалити картинку 200)
+curl -X DELETE http://localhost:3000/200
+
+# Тест 4: GET знову (має завантажити з http.cat заново)
+curl http://localhost:3000/200 -o test_200_again.jpg
+
+# Тест 5: PUT запит (завантажити свою картинку)
+curl -X PUT http://localhost:3000/999 --data-binary "@test_200.jpg"
+
+# Тест 6: GET для перевірки PUT
+curl http://localhost:3000/999 -o test_999.jpg
+
+# Тест 7: Неправильний метод (має повернути 405)
+curl -X POST http://localhost:3000/200
+
+# Тест 8: Відкрити в браузері
+# http://localhost:3000/200
+# http://localhost:3000/404
+# http://localhost:3000/500
